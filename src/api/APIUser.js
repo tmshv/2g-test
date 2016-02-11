@@ -35,7 +35,7 @@ export default class APIUser extends EndPoint {
 
         return this.request.post('/api/user/login', data, options)
             .then(res => res.data)
-            .then(data => JSON.parse(data))
+            .then(JSON.parse)
             .then(data => {
                 this.setProfile(data);
                 return data;

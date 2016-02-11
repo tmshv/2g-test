@@ -16,7 +16,7 @@ export default class APITasks extends EndPoint{
         const url = this.buildUrl(params);
         return this.request.get(url)
             .then(res => res.data)
-            .then(data => JSON.parse(data));
+            .then(JSON.parse);
     }
 
     buildUrl(params) {
