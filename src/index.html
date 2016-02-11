@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <base href="/">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="/main.js"></script>
+</head>
+<body>
+<div ng-controller="AppController">
+    <p>{{tasksUrl}}</p>
+
+    <form
+            ng-show="!authorized"
+            ng-controller="FormController"
+            ng-submit="submit()"
+    >
+        <input type="text" ng-model="email">
+        <input type="text" ng-model="password">
+        <input type="submit" id="submit" value="Login"/>
+    </form>
+
+    <div ng-show="authorized">{{userName}} <button ng-click="logout()">Logout</button></div>
+
+    <filter-form update="filterUpdate"></filter-form>
+
+    <task-list tasks="tasks"></task-list>
+</div>
+</body>
+</html>

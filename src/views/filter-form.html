@@ -1,0 +1,22 @@
+<form>
+    <label>
+        <input type="text" ng-model="options.author"> Author ID
+    </label>
+
+    <label>
+        <input type="checkbox" ng-model="options.noDate"> No date
+    </label>
+
+    <label>
+        <input type="checkbox" ng-model="options.ascSort"> Asc sort
+    </label>
+
+    <label>
+        Sort
+        <select ng-model="options.sort" multiple>
+            <option ng-repeat="i in sortEnum" value="{{i}}">{{i}}</option>
+        </select>
+    </label>
+
+    <checkbox-list values="statusEnum" ng-model="options.status"></checkbox-list>
+</form>
