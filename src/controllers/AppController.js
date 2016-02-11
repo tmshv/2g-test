@@ -1,10 +1,13 @@
 import config from '../config';
 
 module.exports = function (app) {
-    app.controller('AppController', function ($rootScope, $scope, api) {
+    app.controller('AppController', function ($rootScope, $scope, $filter, api) {
         $scope.authorized = false;
         $scope.userName = null;
         $scope.userId = null;
+
+        const dateFormat = $filter('date');
+        const datePattern = 'yyyy-MM-dd';
 
         function getTasks(filter){
             const status = filter.status.join(',') || null;
@@ -12,13 +15,17 @@ module.exports = function (app) {
             const sortType = filter.ascSort ? 'ASC' : 'DESC';
             const sort = filter.sort;
             const author = filter.author ? filter.author : null;
+            const dateFrom = filter.dateFrom ? dateFormat(filter.dateFrom, datePattern) : null;
+            const dateTo = filter.dateTo ? dateFormat(filter.dateTo, datePattern) : null;
 
             const options = {
                 sort: sort,
                 sortType: sortType,
                 author: author,
                 no_date:noDate,
-                status: status
+                status: status,
+                dateFrom: dateFrom,
+                dateTo: dateTo
                 //limit: config.pages,
                 //skip: 0
             };

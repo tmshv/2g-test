@@ -12,6 +12,14 @@
     </label>
 
     <label>
+        <input type="date" ng-model="dateFrom"> Date from
+    </label>
+
+    <label>
+        <input type="date" ng-model="dateTo"> Date to
+    </label>
+
+    <label>
         Sort
         <select ng-model="options.sort" multiple>
             <option ng-repeat="i in sortEnum" value="{{i}}">{{i}}</option>
