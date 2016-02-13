@@ -10,8 +10,9 @@
 //@apiParam {Number} author  ID автора
 
 export default class EndPoint{
-    constructor(request, broadcast) {
+    constructor(request, broadcast, baseUrl) {
         this.request = request;
         this.broadcast = broadcast;
+        this.baseUrl = baseUrl;
     }
 }

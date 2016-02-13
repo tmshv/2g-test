@@ -25,6 +25,6 @@ export default class APITasks extends EndPoint{
             .map(key => `${key}=${params[key]}`)
             .join('&');
 
-        return `/api/tasks?${query}`;
+        return `${this.baseUrl}/api/tasks?${query}`;
     }
 }

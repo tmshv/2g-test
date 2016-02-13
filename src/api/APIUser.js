@@ -12,8 +12,8 @@
 import EndPoint from './EndPoint';
 
 export default class APIUser extends EndPoint {
-    constructor(request, broadcast) {
-        super(request, broadcast);
+    constructor(request, broadcast, baseUrl) {
+        super(request, broadcast, baseUrl);
 
         try{
             this.setProfile(JSON.parse(localStorage.getItem('user')));
@@ -27,15 +27,17 @@ export default class APIUser extends EndPoint {
             email: email,
             password: password
         };
+
         const options = {
             headers: {
                 'Token': token
             }
         };
 
-        return this.request.post('/api/user/login', data, options)
+        const url = `${this.baseUrl}/api/user/login`;
+        return this.request.post(url, data, options)
             .then(res => res.data)
-            .then(JSON.parse)
+            //.then(JSON.parse)
             .then(data => {
                 this.setProfile(data);
                 return data;
