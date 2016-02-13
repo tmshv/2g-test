@@ -1,6 +1,6 @@
 import config from '../config';
 
-module.exports = function (app) {
+export default function (app) {
     app.controller('AppController', function ($rootScope, $scope, $filter, api) {
         $scope.authorized = false;
         $scope.userName = null;

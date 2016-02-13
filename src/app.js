@@ -1,10 +1,9 @@
-import angular from 'angular';
+import api from './api/api';
+import AppController from './controllers/AppController';
+import FormController from './controllers/FormController';
+import taskList from './directives/taskList';
+import checkboxList from './directives/checkboxList';
+import filterForm from './directives/filterForm';
 
-var app = angular.module('app', []);
-
-require('./controllers/AppController')(app);
-require('./controllers/FormController')(app);
-require('./directives/taskList')(app);
-require('./directives/checkboxList')(app);
-require('./directives/filterForm')(app);
-require('./api/api')(app);
+const app = angular.module('app', []);
+[AppController, FormController, taskList, checkboxList, filterForm, api].forEach(i => i(app));

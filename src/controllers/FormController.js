@@ -1,4 +1,4 @@
-module.exports = function (app) {
+export default function (app) {
     app.controller('FormController', function ($scope, api) {
         $scope.email = 'task@test.api';
         $scope.password = 'qwerty';

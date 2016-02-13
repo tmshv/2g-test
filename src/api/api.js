@@ -1,7 +1,7 @@
 import APITasks from './APITasks';
 import APIUser from './APIUser';
 
-module.exports = function (app) {
+export default function (app) {
     app.factory('api', function ($rootScope, $http) {
 
         const broadcast = (event, data) => {

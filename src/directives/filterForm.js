@@ -1,6 +1,6 @@
 import {parseDate} from '../utils/date';
 
-module.exports = function (app) {
+export default function (app) {
     app.directive('filterForm', function () {
         return {
             restrict: 'E',

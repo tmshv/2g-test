@@ -1,4 +1,4 @@
-module.exports = function (app) {
+export default function (app) {
     app.directive('checkboxList', function ($parse) {
         return {
             restrict: 'E',
